@@ -1,0 +1,33 @@
+﻿GitHub Workflow
+
+
+
+
+Fork the repo
+
+
+This means making your own copy under your GitHub account.
+Clone your fork
+
+
+This downloads the copy to your computer.
+Create a branch
+
+
+A branch is a separate line of work so you don’t mess up the main project.
+Make changes
+
+
+Edit files, add code, fix something, update docs, etc.
+Commit your changes
+
+
+A commit is a saved snapshot of your work.
+Push to your fork
+
+
+Upload your changes to GitHub.
+Open a Pull Request (PR)
+
+
+Ask the original repo owner to review and merge your changes.
