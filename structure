@@ -1,0 +1,93 @@
+A good structure is a small command-loop adventure where each GitHub workflow step is a potion-making action, and the player learns the sequence by doing it in order. You can model it as scenes, inventory, step validation, and a win condition.
+
+Core game loop
+Use a simple terminal loop:
+
+Show the current objective.
+
+Accept one command from the player.
+
+Check whether the command matches the next workflow step.
+
+Advance the story or give feedback.
+
+Repeat until the potion is finished.
+
+This works well because the workflow in the file is naturally sequential: fork, clone, branch, change, commit, push, PR.
+
+Story mapping
+Map each GitHub action to a brewing metaphor:
+
+Fork the repo → Copy the recipe scroll into your own notebook.
+
+Clone your fork → Bring the notebook into your workshop.
+
+Create a branch → Prepare a separate cauldron for this experiment.
+
+Make changes → Add herbs, stir, adjust the brew.
+
+Commit your changes → Seal the current potion state in a vial.
+
+Push to your fork → Send the vial back to your home shelf.
+
+Open a Pull Request → Ask the guild master to inspect the potion.
+
+That mapping keeps the fantasy consistent while preserving the real workflow meaning.
+
+Game structures
+A basic implementation could use these data structures:
+
+GameState: current step, inventory, completed steps, dialogue log.
+
+Step: id, title, expected command, success text, failure text.
+
+Item: herb names, vial, notebook, cauldron.
+
+Scene: intro text, available actions, next scene id.
+
+Validation: checks whether the player used the right action in the right order.
+
+For example, the “create branch” step might require the player to have the notebook copied and the cauldron prepared before allowing the next action.
+
+Terminal flow
+A clean terminal screen might look like this:
+
+text
+Potion Quest: GitHub Alchemy
+
+You stand before the recipe table.
+Goal: Learn the workflow by brewing the potion.
+
+Current step: Fork the repo
+Hint: Make your own copy first.
+
+> fork scroll
+You copy the recipe into your own notebook.
+Next step: Clone your fork
+Each step should give one short clue and one clear success message, so the player can infer the workflow without getting lost.
+
+Teaching design
+To make it educational, reinforce each step with both action and explanation. For example, after “commit your changes,” show something like: “You seal this version so you can return to it later.” That ties the metaphor back to the Git concept instead of leaving it purely symbolic.
+
+You can also add:
+
+A “mistake” system that explains why steps are out of order.
+
+A journal that records each Git action and its meaning.
+
+A final recap that lists the full workflow in plain language.
+
+Minimal implementation shape
+At minimum, you only need:
+
+A linear sequence of 7 steps.
+
+A command parser.
+
+State tracking for progress.
+
+Success/failure text.
+
+A final completion screen.
+
+A tiny terminal game with those pieces is enough to teach the GitHub workflow clearly while still feeling like a potion-brewing adventure.
